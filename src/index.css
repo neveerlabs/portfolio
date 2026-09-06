@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-fg);
+  --color-primary: var(--primary);
+  --color-primary-foreground: #ffffff;
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+  --color-border: var(--border);
+}
+
+@layer base {
+  :root {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --card: #ffffff;
+    --card-fg: #0f172a;
+    --primary: #8b5cf6;
+    --muted: #f1f5f9;
+    --muted-fg: #64748b;
+    --border: #e2e8f0;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --bg: #0f1014;
+    --fg: #fafafa;
+    --card: #16171b;
+    --card-fg: #fafafa;
+    --primary: #8b5cf6;
+    --muted: #272832;
+    --muted-fg: #a1a1aa;
+    --border: #272832;
+    --glass-bg: rgba(22, 23, 27, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15) 0%, transparent 60%), radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+  }
+
+  /* View Transition API overrides for Lightswind ToggleTheme */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::selection {
+    background-color: rgba(139, 92, 246, 0.3);
+  }
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--fg) 0%, var(--muted-fg) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
