@@ -48,20 +48,20 @@ export interface ThreeDSmokeyFrameProps extends PropsWithChildren {
 }
 
 export interface ThreeDSmokeyFrameHandle {
-    getCanvas: () => HTMLCanvasElement | null;
-    getGL: () => WebGLRenderingContext | null;
+getCanvas: ()=*
+getGL: ()=*
 }
 
 /** Utility to parse Hex or RGB strings to normalized [r, g, b] float vectors */
-function parseColorToRgb(color: string, fallback: [number, number, number] = [0, 0.96, 1]): [number, number, number] {
+function parseColorToRgb(color: string, fallback: [number, number, number]=*
     if (!color) return fallback;
-    const clean = color.trim();
+const clean=*
     if (clean.startsWith("#")) {
-        let hex = clean.replace("#", "");
-        if (hex.length === 3) {
-            hex = hex.split("").map((c) => c + c).join("");
+let hex=*
+if (hex.length=*
+hex=*
         }
-        const num = parseInt(hex, 16);
+const num=*
         if (isNaN(num)) return fallback;
         return [
             ((num >> 16) & 255) / 255,
@@ -69,7 +69,7 @@ function parseColorToRgb(color: string, fallback: [number, number, number] = [0,
             (num & 255) / 255,
         ];
     }
-    const match = clean.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+const match=*
     if (match) {
         return [
             parseInt(match[1], 10) / 255,
@@ -80,16 +80,16 @@ function parseColorToRgb(color: string, fallback: [number, number, number] = [0,
     return fallback;
 }
 
-const VERTEX_SHADER = `
+const VERTEX_SHADER=*
   attribute vec2 a_position;
   varying vec2 v_uv;
   void main() {
-    v_uv = (a_position + 1.0) * 0.5;
-    gl_Position = vec4(a_position, 0.0, 1.0);
+v_uv=*
+gl_Position=*
   }
 `;
 
-const FRAGMENT_SHADER = `
+const FRAGMENT_SHADER=*
   precision highp float;
   varying vec2 v_uv;
 
@@ -113,101 +113,101 @@ const FRAGMENT_SHADER = `
   vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
 
   float snoise(vec2 v){
-    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+const vec4 C=*
                        -0.577350269189626, 0.024390243902439);
-    vec2 i  = floor(v + dot(v, C.yy) );
-    vec2 x0 = v -   i + dot(i, C.xx);
-    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-    vec4 x12 = x0.xyxy + C.xxzz;
-    x12.xy -= i1;
-    i = mod(i, 289.0);
-    vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+vec2 i=*
+vec2 x0=*
+vec2 i1=*
+vec4 x12=*
+x12.xy -=*
+i=*
+vec3 p=*
           + i.x + vec3(0.0, i1.x, 1.0 ));
-    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-    m = m*m ;
-    m = m*m ;
-    vec3 x = 2.0 * fract(p * C.www) - 1.0;
-    vec3 h = abs(x) - 0.5;
-    vec3 ox = floor(x + 0.5);
-    vec3 a0 = x - ox;
-    m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+vec3 m=*
+m=*
+m=*
+vec3 x=*
+vec3 h=*
+vec3 ox=*
+vec3 a0=*
+m *=*
     vec3 g;
-    g.x  = a0.x  * x0.x  + h.x  * x0.y;
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+g.x=*
+g.yz=*
     return 130.0 * dot(m, g);
   }
 
   // 5-Octave Fractional Brownian Motion for lush smoke tendrils
   float fbm(vec2 p) {
-    float total = 0.0;
-    float amp = 0.5;
-    float freq = 1.0;
-    for(int i = 0; i < 5; i++) {
-      total += snoise(p * freq) * amp;
-      freq *= 2.02;
-      amp *= 0.5;
+float total=*
+float amp=*
+float freq=*
+for(int i=*
+total +=*
+freq *=*
+amp *=*
     }
     return total;
   }
 
   void main() {
-    vec2 uv = v_uv;
-    float aspect = u_resolution.x / u_resolution.y;
+vec2 uv=*
+float aspect=*
 
     // Aspect ratio correction for noise sampling
-    vec2 noiseUV = uv;
+vec2 noiseUV=*
     if (aspect > 1.0) {
-      noiseUV.x *= aspect;
+noiseUV.x *=*
     } else {
-      noiseUV.y /= aspect;
+noiseUV.y /=*
     }
 
     // Interactive mouse turbulence displacement
     if (u_isHovered > 0.0) {
-      vec2 mouseUV = u_mouse;
-      if (aspect > 1.0) mouseUV.x *= aspect; else mouseUV.y /= aspect;
-      float dMouse = distance(noiseUV, mouseUV);
-      float mouseInfluence = smoothstep(0.6, 0.0, dMouse);
-      noiseUV += (noiseUV - mouseUV) * mouseInfluence * 0.12 * u_isHovered;
+vec2 mouseUV=*
+if (aspect > 1.0) mouseUV.x *=*
+float dMouse=*
+float mouseInfluence=*
+noiseUV +=*
     }
 
     // Animated volumetric noise field
-    float t = u_time * u_speed;
-    float noise1 = fbm(noiseUV * u_noiseScale + vec2(t * 0.45, t * 0.28));
-    float noise2 = fbm(noiseUV * (u_noiseScale * 1.5) - vec2(t * 0.32, -t * 0.4));
-    float combinedNoise = (noise1 * 0.65 + noise2 * 0.35 + 1.0) * 0.5;
+float t=*
+float noise1=*
+float noise2=*
+float combinedNoise=*
 
     // Distance calculation from all 4 boundaries (0 at boundary, 0.5 at center)
-    vec2 distToEdge = min(uv, 1.0 - uv);
-    float minAxisDist = min(distToEdge.x, distToEdge.y);
+vec2 distToEdge=*
+float minAxisDist=*
 
     // Normalize distance based on the frameWidth parameter
-    float frameDist = clamp(minAxisDist / max(u_frameWidth, 0.0001), 0.0, 1.0);
+float frameDist=*
 
-    // Invert so frame edge = 1.0, interior core = 0.0
-    float edgeStrength = 1.0 - frameDist;
-    edgeStrength = pow(edgeStrength, u_falloff);
+// Invert so frame edge=*
+float edgeStrength=*
+edgeStrength=*
 
     // Modulate edge with procedural smoke noise
-    float modulatedFrame = mix(edgeStrength, edgeStrength * combinedNoise, u_noiseStrength);
+float modulatedFrame=*
 
     // Apply intensity multiplier and gamma curve for rich contrast
-    float finalGlow = pow(modulatedFrame * u_intensity, u_gamma);
-    finalGlow = clamp(finalGlow, 0.0, 1.0);
+float finalGlow=*
+finalGlow=*
 
     // Render with transparent background or blended solid background
     if (u_transparentBg > 0.5) {
-      float alpha = finalGlow * u_opacity;
-      gl_FragColor = vec4(u_frameColor, alpha);
+float alpha=*
+gl_FragColor=*
     } else {
-      vec3 finalColor = mix(u_frameBgColor, u_frameColor, finalGlow);
-      gl_FragColor = vec4(finalColor, u_opacity);
+vec3 finalColor=*
+gl_FragColor=*
     }
   }
 `;
 
 function createShader(gl: WebGLRenderingContext, type: number, source: string): WebGLShader | null {
-    const shader = gl.createShader(type);
+const shader=*
     if (!shader) return null;
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
@@ -219,55 +219,55 @@ function createShader(gl: WebGLRenderingContext, type: number, source: string): 
     return shader;
 }
 
-export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmokeyFrameProps>(({
+export const ThreeDSmokeyFrame=*
     children,
-    frameColor = "#00F5FF",
+frameColor=*
     frameBgColor,
-    transparentBg = true,
-    frameWidth = 0.30,
-    speed = 0.15,
-    falloff = 6.0,
-    noiseScale = 3.0,
-    noiseStrength = 1.0,
-    intensity = 1.2,
-    gamma = 2.0,
-    opacity = 1.0,
-    interactive = true,
-    glow = true,
-    glowBlur = 36,
-    glowOpacity = 0.45,
-    radius = "16px",
+transparentBg=*
+frameWidth=*
+speed=*
+falloff=*
+noiseScale=*
+noiseStrength=*
+intensity=*
+gamma=*
+opacity=*
+interactive=*
+glow=*
+glowBlur=*
+glowOpacity=*
+radius=*
     className,
     canvasClassName,
     style,
-    dpr = 2,
-}, ref) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const glRef = useRef<WebGLRenderingContext | null>(null);
-    const animFrameRef = useRef<number | null>(null);
-    const isVisibleRef = useRef<boolean>(true);
+dpr=*
+}, ref)=*
+const containerRef=*
+const canvasRef=*
+const glRef=*
+const animFrameRef=*
+const isVisibleRef=*
 
-    const { resolvedTheme, theme } = useTheme();
-    const isLightMode = resolvedTheme === "light" || theme === "light";
-    const effectiveBgColor = frameBgColor ?? (isLightMode ? "#ffffff" : "#08080a");
+const { resolvedTheme, theme }=*
+const isLightMode=*
+const effectiveBgColor=*
 
-    const mousePosRef = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 });
-    const isHoveredRef = useRef<number>(0);
-    const startTimeRef = useRef<number>(performance.now());
+const mousePosRef=*
+const isHoveredRef=*
+const startTimeRef=*
 
-    const parsedRadius = typeof radius === "number" ? `${radius}px` : radius;
+const parsedRadius=*
 
-    useImperativeHandle(ref, () => ({
-        getCanvas: () => canvasRef.current,
-        getGL: () => glRef.current,
+useImperativeHandle(ref, ()=*
+getCanvas: ()=*
+getGL: ()=*
     }));
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
+useEffect(()=*
+const canvas=*
         if (!canvas) return;
 
-        const gl = canvas.getContext("webgl", {
+const gl=*
             alpha: true,
             antialias: true,
             depth: false,
@@ -279,15 +279,15 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
             return;
         }
 
-        glRef.current = gl;
+glRef.current=*
         gl.enable(gl.BLEND);
         gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
-        const vs = createShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER);
-        const fs = createShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER);
+const vs=*
+const fs=*
         if (!vs || !fs) return;
 
-        const program = gl.createProgram();
+const program=*
         if (!program) return;
         gl.attachShader(program, vs);
         gl.attachShader(program, fs);
@@ -301,7 +301,7 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
         gl.useProgram(program);
 
         // Quad Geometry Buffers
-        const positionBuffer = gl.createBuffer();
+const positionBuffer=*
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
         gl.bufferData(
             gl.ARRAY_BUFFER,
@@ -316,12 +316,12 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
             gl.STATIC_DRAW
         );
 
-        const positionLocation = gl.getAttribLocation(program, "a_position");
+const positionLocation=*
         gl.enableVertexAttribArray(positionLocation);
         gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
         // Uniform Locations
-        const uniforms = {
+const uniforms=*
             resolution: gl.getUniformLocation(program, "u_resolution"),
             time: gl.getUniformLocation(program, "u_time"),
             speed: gl.getUniformLocation(program, "u_speed"),
@@ -339,47 +339,47 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
             isHovered: gl.getUniformLocation(program, "u_isHovered"),
         };
 
-        const handleResize = () => {
+const handleResize=*
             if (!canvas || !gl) return;
-            const targetDpr = Math.min(window.devicePixelRatio || 1, dpr);
-            const displayWidth = Math.round(canvas.clientWidth * targetDpr);
-            const displayHeight = Math.round(canvas.clientHeight * targetDpr);
+const targetDpr=*
+const displayWidth=*
+const displayHeight=*
 
-            if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-                canvas.width = Math.max(1, displayWidth);
-                canvas.height = Math.max(1, displayHeight);
+if (canvas.width !=*
+canvas.width=*
+canvas.height=*
                 gl.viewport(0, 0, canvas.width, canvas.height);
             }
         };
 
         handleResize();
 
-        const resizeObserver = new ResizeObserver(() => {
+const resizeObserver=*
             handleResize();
         });
         resizeObserver.observe(canvas);
 
-        const intersectionObserver = new IntersectionObserver(
-            ([entry]) => {
-                isVisibleRef.current = entry.isIntersecting;
+const intersectionObserver=*
+([entry])=*
+isVisibleRef.current=*
             },
             { threshold: 0.05 }
         );
         intersectionObserver.observe(canvas);
 
-        let currentHover = 0;
+let currentHover=*
 
-        const render = () => {
+const render=*
             if (isVisibleRef.current && gl && canvas) {
                 handleResize();
 
-                const time = (performance.now() - startTimeRef.current) * 0.001;
-                const fColor = parseColorToRgb(frameColor, [0, 0.96, 1]);
-                const bColor = parseColorToRgb(effectiveBgColor, [0.04, 0.04, 0.04]);
+const time=*
+const fColor=*
+const bColor=*
 
                 // Smooth hover transition
-                const targetHover = isHoveredRef.current;
-                currentHover += (targetHover - currentHover) * 0.1;
+const targetHover=*
+currentHover +=*
 
                 gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
                 gl.uniform1f(uniforms.time, time);
@@ -400,12 +400,12 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
                 gl.drawArrays(gl.TRIANGLES, 0, 6);
             }
 
-            animFrameRef.current = requestAnimationFrame(render);
+animFrameRef.current=*
         };
 
-        animFrameRef.current = requestAnimationFrame(render);
+animFrameRef.current=*
 
-        return () => {
+return ()=*
             if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
             resizeObserver.disconnect();
             intersectionObserver.disconnect();
@@ -431,30 +431,30 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
         dpr,
     ]);
 
-    const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+const handleMouseMove=*
         if (!interactive || !containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = 1.0 - (e.clientY - rect.top) / rect.height; // Invert for WebGL UV coords
-        mousePosRef.current = { x, y };
+const rect=*
+const x=*
+const y=*
+mousePosRef.current=*
     }, [interactive]);
 
-    const handleMouseEnter = useCallback(() => {
-        if (interactive) isHoveredRef.current = 1.0;
+const handleMouseEnter=*
+if (interactive) isHoveredRef.current=*
     }, [interactive]);
 
-    const handleMouseLeave = useCallback(() => {
-        if (interactive) isHoveredRef.current = 0.0;
+const handleMouseLeave=*
+if (interactive) isHoveredRef.current=*
     }, [interactive]);
 
     return (
         <div
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={cn("relative w-full h-full min-h-[300px] overflow-hidden select-none", className)}
-            style={{
+ref=*
+onMouseMove=*
+onMouseEnter=*
+onMouseLeave=*
+className=*
+style=*
                 borderRadius: parsedRadius,
                 ...style,
             }}
@@ -462,8 +462,8 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
             {/* Ambient Atmosphere Glow Backdrop */}
             {glow && (
                 <div
-                    className="absolute inset-0 pointer-events-none -z-10 scale-105 transition-opacity duration-300"
-                    style={{
+className=*
+style=*
                         borderRadius: parsedRadius,
                         filter: `blur(${glowBlur}px)`,
                         background: `radial-gradient(ellipse at center, ${frameColor} 0%, transparent 75%)`,
@@ -474,9 +474,9 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
 
             {/* WebGL Canvas Shader Output */}
             <canvas
-                ref={canvasRef}
-                className={cn("w-full h-full block pointer-events-none absolute inset-0", canvasClassName)}
-                style={{
+ref=*
+className=*
+style=*
                     borderRadius: parsedRadius,
                 }}
             />
@@ -484,8 +484,8 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
             {/* Slotted Children Content Layer */}
             {children && (
                 <div
-                    className="relative z-10 w-full h-full flex flex-col justify-center items-center pointer-events-auto"
-                    style={{
+className=*
+style=*
                         borderRadius: parsedRadius,
                     }}
                 >
@@ -496,6 +496,6 @@ export const ThreeDSmokeyFrame = forwardRef<ThreeDSmokeyFrameHandle, ThreeDSmoke
     );
 });
 
-ThreeDSmokeyFrame.displayName = "ThreeDSmokeyFrame";
+ThreeDSmokeyFrame.displayName=*
 
 export default ThreeDSmokeyFrame;
