@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Mail, X } from "lucide-react";
 import TechStackSection from "../TechStackSection/TechStackSection";
 import { Button } from "../lightswind/button";
 import { Badge } from "../lightswind/badge";
@@ -9,9 +10,37 @@ import { DotPattern } from "../lightswind/dot-pattern";
 import profileImage from "../../assets/image.jpeg";
 import resumeFile from "../../assets/RESUME-Muhammad-Syalman-Al-Farizi.pdf";
 import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
+import readmeContent from "../../../README.md?raw";
+
+const readmeHtml = readmeContent
+  .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+  .replace(/^---$/gm, "<hr />")
+  .replace(/\n{2,}/g, "<br /><br />");
 
 export const HeroSection = () => {
+  const [isReadmeOpen, setIsReadmeOpen] = useState(false);
+  const readmeContentRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isReadmeOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    readmeContentRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsReadmeOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isReadmeOpen]);
+
   return (
+    <>
     <section id="hero" className="relative min-h-[100vh] flex flex-col pt-12 md:pt-16 overflow-hidden bg-background">
       {/* Background Dot Pattern with Radial Vignette Shade */}
       <DotPattern width={16} height={16} cx={1} cy={1} cr={1} glow />
@@ -135,9 +164,21 @@ export const HeroSection = () => {
           >
             <div className="flex flex-col h-full bg-card w-full">
               {/* Card Header Banner with Avatar */}
-              <div className="relative px-5 pt-7 pb-6 flex flex-col items-center bg-gradient-to-br from-purple-700 via-primary to-indigo-950 text-white overflow-hidden">
+              <div className="relative z-10 px-5 pt-7 pb-6 flex flex-col items-center bg-gradient-to-br from-purple-700 via-primary to-indigo-950 text-white overflow-hidden">
                 {/* Circuit background overlay */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none" />
+                <button
+                 type="button"
+                 onClick={(event) => {
+                   event.stopPropagation();
+                   setIsReadmeOpen(true);
+                 }}
+                 onPointerDown={(event) => event.stopPropagation()}
+                 className="absolute top-3 right-3 z-50 pointer-events-auto rounded-lg border border-white/70 bg-white px-2.5 py-1 text-[10px] font-bold tracking-wide text-black shadow-lg backdrop-blur-md transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                 aria-label="Open README.md"
+                >
+                 README.md
+                </button>
 
                 {/* Profile Photo with Dual Glowing Ring */}
                 <div className="mt-1 relative w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-cyan-400 via-primary to-purple-400 backdrop-blur-md shadow-2xl border border-white/50 overflow-hidden group">
@@ -219,5 +260,43 @@ export const HeroSection = () => {
         <TechStackSection />
       </div>
     </section>
+    {isReadmeOpen && (
+      <div
+        className="fixed inset-0 z-[1000] flex h-[100dvh] overscroll-none items-center justify-center overflow-hidden bg-slate-950/60 px-4 py-8 backdrop-blur-sm"
+        role="presentation"
+        onMouseDown={() => setIsReadmeOpen(false)}
+      >
+        <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="readme-dialog-title"
+          initial={{ opacity: 0, scale: 0.96, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="relative flex max-h-[86vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-2xl"
+          onMouseDown={(event) => event.stopPropagation()}
+        >
+          <div className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-black px-5 py-3">
+            <h2 id="readme-dialog-title" className="font-mono text-sm font-bold text-white">README.md</h2>
+            <button
+              type="button"
+              onClick={() => setIsReadmeOpen(false)}
+              className="rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white"
+              aria-label="Close README.md"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <article
+            ref={readmeContentRef}
+            tabIndex={0}
+            onWheel={(event) => event.stopPropagation()}
+            onDragStart={(event) => event.preventDefault()}
+            className="readme-preview min-h-0 flex-1 select-none overflow-y-auto overscroll-contain bg-black px-6 py-5 text-sm leading-7 text-zinc-300 outline-none"
+            dangerouslySetInnerHTML={{ __html: readmeHtml }}
+          />
+        </motion.div>
+      </div>
+    )}
+    </>
   );
 };
