@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Github, Twitter, Mail, ArrowUp, Heart } from "lucide-react";
+import { Github, Mail, ArrowUp, Heart } from "lucide-react";
 import { MorphingText } from "../lightswind/morphing-text";
+import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
 
 export const Footer = () => {
   const morphingTexts = [
@@ -25,9 +26,11 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: "https://x.com/neverlabs291", label: "Twitter/X" },
+    { icon: XIcon, href: "https://x.com/neverlabs291", label: "X" },
     { icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
     { icon: Mail, href: "mailto:neverlabs4@gmail.com", label: "Email" },
+    { icon: InstagramIcon, href: "https://www.instagram.com/neveerlabs", label: "Instagram (@neveerlabs)" },
+    { icon: FacebookIcon, href: "https://www.facebook.com/Salman", label: "Facebook (Salman)" },
   ];
 
   return (
@@ -106,6 +109,8 @@ export const Footer = () => {
                   key={i}
                   href={social.href}
                   aria-label={social.label}
+                  target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={social.href.startsWith("mailto:") ? undefined : "noreferrer"}
                   className="w-10 h-10 rounded-full glass-panel border border-black/5 dark:border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 hover:scale-110 transition-all shadow-sm"
                 >
                   <Icon className="w-4 h-4" />
