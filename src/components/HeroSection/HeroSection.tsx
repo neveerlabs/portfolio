@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Mail, Twitter } from "lucide-react";
+import { ArrowRight, Download, Github, Mail } from "lucide-react";
 import TechStackSection from "../TechStackSection/TechStackSection";
 import { Button } from "../lightswind/button";
 import { Badge } from "../lightswind/badge";
@@ -8,6 +8,7 @@ import { AuroraTextEffect } from "../lightswind/aurora-text-effect";
 import { DotPattern } from "../lightswind/dot-pattern";
 import profileImage from "../../assets/image.jpeg";
 import resumeFile from "../../assets/RESUME-Muhammad-Syalman-Al-Farizi.pdf";
+import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
 
 export const HeroSection = () => {
   return (
@@ -102,8 +103,14 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            {[Twitter, Github, Mail].map((Icon, i) => (
-              <a key={i} href={["https://x.com/neverlabs291", "https://github.com/neveerlabs", "mailto:neverlabs4@gmail.com"][i]} target={i === 2 ? undefined : "_blank"} rel={i === 2 ? undefined : "noreferrer"} className="text-muted-foreground hover:text-foreground transition-colors hover:-translate-y-1 transform duration-200">
+            {[
+              { Icon: XIcon, href: "https://x.com/neverlabs291", label: "X" },
+              { Icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
+              { Icon: Mail, href: "mailto:neverlabs4@gmail.com", label: "Email" },
+              { Icon: InstagramIcon, href: "https://www.instagram.com/neveerlabs", label: "Instagram" },
+              { Icon: FacebookIcon, href: "https://www.facebook.com/Salman", label: "Facebook" },
+            ].map(({ Icon, href, label }) => (
+              <a key={label} href={href} aria-label={label} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} className="text-muted-foreground hover:text-foreground transition-colors hover:-translate-y-1 transform duration-200">
                 <Icon className="w-5 h-5" />
               </a>
             ))}
