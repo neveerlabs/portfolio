@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-const vertexSmokeySource = `
+const vertexSmokeySource=*
   attribute vec4 a_position;
   void main() {
-    gl_Position = a_position;
+gl_Position=*
   }
 `;
 
-const fragmentSmokeySource = `
+const fragmentSmokeySource=*
 precision mediump float;
 
 uniform vec2 iResolution;
@@ -17,25 +17,25 @@ uniform vec2 iMouse;
 uniform vec3 u_color;
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
-    vec2 uv = fragCoord / iResolution;
-    vec2 centeredUV = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
+vec2 uv=*
+vec2 centeredUV=*
 
-    float time = iTime * 0.5;
+float time=*
 
     // Normalize mouse input (0.0 - 1.0)
-    vec2 mouse = iMouse / iResolution;
-    vec2 rippleCenter = 2.0 * mouse - 1.0; // remap to -1.0 ~ 1.0
+vec2 mouse=*
+vec2 rippleCenter=*
 
-    vec2 distortion = centeredUV;
-    for (float i = 1.0; i < 8.0; i++) {
-        distortion.x += 0.5 / i * cos(i * 2.0 * distortion.y + time + rippleCenter.x * 3.1415);
-        distortion.y += 0.5 / i * cos(i * 2.0 * distortion.x + time + rippleCenter.y * 3.1415);
+vec2 distortion=*
+for (float i=*
+distortion.x +=*
+distortion.y +=*
     }
 
-    float wave = abs(sin(distortion.x + distortion.y + time));
-    float glow = smoothstep(0.9, 0.2, wave);
+float wave=*
+float glow=*
 
-    fragColor = vec4(u_color * glow, 1.0);
+fragColor=*
 }
 
 void main() {
@@ -46,7 +46,7 @@ void main() {
 /**
  * Valid blur sizes supported by Tailwind CSS.
  */
-export type BlurSize = "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+export type BlurSize=*
 
 /**
  * @typedef {Object} SmokeyBackgroundProps
@@ -67,7 +67,7 @@ interface SmokeyBackgroundProps {
  * A mapping from simplified blur size names to full Tailwind CSS backdrop-blur classes.
  * This ensures Tailwind's JIT mode can correctly detect and generate the CSS.
  */
-const blurClassMap: Record<BlurSize, string> = {
+const blurClassMap: Record<BlurSize, string>=*
   none: "backdrop-blur-none",
   sm: "backdrop-blur-sm",
   md: "backdrop-blur-md",
@@ -86,37 +86,37 @@ const blurClassMap: Record<BlurSize, string> = {
  * @returns {JSX.Element} The rendered SmokeyBackground component.
  */
 function SmokeyBackground({
-  backdropBlurAmount = "sm",
-  color = "#fff", // Default purple color
-  className = "",
+backdropBlurAmount=*
+color=*
+className=*
 }: SmokeyBackgroundProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+const canvasRef=*
+const [mousePosition, setMousePosition]=*
+const [isHovering, setIsHovering]=*
 
   // Helper to convert hex color to RGB (0-1 range)
-  const hexToRgb = (hex: string): [number, number, number] => {
-    const r = parseInt(hex.substring(1, 3), 16) / 255;
-    const g = parseInt(hex.substring(3, 5), 16) / 255;
-    const b = parseInt(hex.substring(5, 7), 16) / 255;
+const hexToRgb=*
+const r=*
+const g=*
+const b=*
     return [r, g, b];
   };
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
+useEffect(()=*
+const canvas=*
     if (!canvas) return;
 
-    const gl = canvas.getContext("webgl");
+const gl=*
     if (!gl) {
       console.error("WebGL not supported");
       return;
     }
 
-    const compileShader = (
+const compileShader=*
       type: number,
       source: string
-    ): WebGLShader | null => {
-      const shader = gl.createShader(type);
+): WebGLShader | null=*
+const shader=*
       if (!shader) return null;
       gl.shaderSource(shader, source);
       gl.compileShader(shader);
@@ -128,14 +128,14 @@ function SmokeyBackground({
       return shader;
     };
 
-    const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSmokeySource);
-    const fragmentShader = compileShader(
+const vertexShader=*
+const fragmentShader=*
       gl.FRAGMENT_SHADER,
       fragmentSmokeySource
     );
     if (!vertexShader || !fragmentShader) return;
 
-    const program = gl.createProgram();
+const program=*
     if (!program) return;
     gl.attachShader(program, vertexShader);
     gl.attachShader(program, fragmentShader);
@@ -148,7 +148,7 @@ function SmokeyBackground({
 
     gl.useProgram(program);
 
-    const positionBuffer = gl.createBuffer();
+const positionBuffer=*
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(
       gl.ARRAY_BUFFER,
@@ -156,29 +156,29 @@ function SmokeyBackground({
       gl.STATIC_DRAW
     );
 
-    const positionLocation = gl.getAttribLocation(program, "a_position");
+const positionLocation=*
     gl.enableVertexAttribArray(positionLocation);
     gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-    const iResolutionLocation = gl.getUniformLocation(program, "iResolution");
-    const iTimeLocation = gl.getUniformLocation(program, "iTime");
-    const iMouseLocation = gl.getUniformLocation(program, "iMouse");
-    const uColorLocation = gl.getUniformLocation(program, "u_color"); // Get uniform location for custom color
+const iResolutionLocation=*
+const iTimeLocation=*
+const iMouseLocation=*
+const uColorLocation=*
 
-    let startTime = Date.now();
+let startTime=*
 
     // Set the initial color
-    const [r, g, b] = hexToRgb(color);
+const [r, g, b]=*
     gl.uniform3f(uColorLocation, r, g, b);
 
-    const render = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      canvas.width = width;
-      canvas.height = height;
+const render=*
+const width=*
+const height=*
+canvas.width=*
+canvas.height=*
       gl.viewport(0, 0, width, height);
 
-      const currentTime = (Date.now() - startTime) / 1000;
+const currentTime=*
 
       gl.uniform2f(iResolutionLocation, width, height);
       gl.uniform1f(iTimeLocation, currentTime);
@@ -192,19 +192,19 @@ function SmokeyBackground({
       requestAnimationFrame(render);
     };
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
+const handleMouseMove=*
+const rect=*
       setMousePosition({
         x: event.clientX - rect.left,
         y: event.clientY - rect.top,
       });
     };
 
-    const handleMouseEnter = () => {
+const handleMouseEnter=*
       setIsHovering(true);
     };
 
-    const handleMouseLeave = () => {
+const handleMouseLeave=*
       setIsHovering(false);
       setMousePosition({ x: 0, y: 0 });
     };
@@ -215,7 +215,7 @@ function SmokeyBackground({
 
     render();
 
-    return () => {
+return ()=*
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseenter", handleMouseEnter);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
@@ -223,18 +223,18 @@ function SmokeyBackground({
   }, [isHovering, mousePosition, color]); // Add color to the dependency array
 
   // Get the correct Tailwind CSS class from the map
-  const finalBlurClass =
+const finalBlurClass=*
     blurClassMap[backdropBlurAmount as BlurSize] || blurClassMap["sm"];
 
   return (
-    <div className={`w-full max-w-screen h-full overflow-hidden ${className}`}>
+<div className=*
       <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full max-w-screen h-full overflow-hidden"
-        style={{ display: "block" }}
+ref=*
+className=*
+style=*
       />
       {/* Apply the mapped Tailwind CSS class for backdrop blur */}
-      <div className={`absolute inset-0 ${finalBlurClass}`}></div>
+<div className=*
     </div>
   );
 }
