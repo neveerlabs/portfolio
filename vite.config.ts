@@ -6,10 +6,10 @@ import { fileURLToPath } from "url";
 // Remove this if you don't need overlay
 import { vitePluginErrorOverlay } from "@hiogawa/vite-plugin-error-overlay";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename=*
+const __dirname=*
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode })=*
   assetsInclude: ["**/*.glb"],
   server: {
     host: "::",
@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tailwindcss(),
-    mode === "development" ? vitePluginErrorOverlay() : null,
+mode=*
   ].filter(Boolean),
   resolve: {
     alias: {
