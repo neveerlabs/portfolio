@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Github, Mail, ArrowUp, Heart } from "lucide-react";
 import { MorphingText } from "../lightswind/morphing-text";
 import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
+import faviconIcon from "../../assets/react.svg";
+import neverlabsLogo from "../../assets/neverlabs.png";
 
 export const Footer = () => {
   const morphingTexts = [
@@ -44,20 +46,16 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-black/5 dark:border-white/10">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-primary to-sky-400 p-[1px] shadow-lg">
-              <div className="w-full h-full bg-background rounded-[11px] flex items-center justify-center">
-                <span className="font-extrabold text-xs tracking-tighter bg-gradient-to-r from-purple-500 to-sky-400 bg-clip-text text-transparent">
-                  M
-                </span>
+              <div className="w-full h-full bg-background rounded-[11px] flex items-center justify-center p-1.5">
+                <img src={faviconIcon} alt="" className="h-full w-full object-contain" draggable={false} />
               </div>
             </div>
-            <div className="flex flex-col text-left">
-              <span className="font-extrabold tracking-tight text-foreground text-base leading-none">
-                Muhammad Syalman Al Farizi
-              </span>
-              <span className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase mt-0.5">
-                Full Stack Developer & Tools Builder
-              </span>
-            </div>
+            <img
+              src={neverlabsLogo}
+              alt="neverlabs"
+              className="h-10 w-40 object-contain object-left"
+              draggable={false}
+            />
           </div>
 
           <motion.button
