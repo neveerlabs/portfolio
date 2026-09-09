@@ -5,10 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "url";
 import { vitePluginErrorOverlay } from "@hiogawa/vite-plugin-error-overlay";
 
-const __filename=*
-const __dirname=*
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig(({ mode })=*
+export default defineConfig(({ mode }) => ({
   assetsInclude: ["**/*.glb"],
   server: {
     host: "::",
@@ -17,11 +16,11 @@ export default defineConfig(({ mode })=*
   plugins: [
     react(),
     tailwindcss(),
-mode=*
+    mode === "development" ? vitePluginErrorOverlay() : null,
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(projectRoot, "src"),
     },
   },
 }));
