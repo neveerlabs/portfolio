@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+sync-gh
+*.bak
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
