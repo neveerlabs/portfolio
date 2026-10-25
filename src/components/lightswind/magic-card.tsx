@@ -16,6 +16,7 @@ export const MagicCard = ({
     icon,
     children,
     className,
+    style,
     ...props
 }: MagicCardProps) => {
     const cardRef = useRef<HTMLDivElement>(null);
@@ -56,14 +57,20 @@ export const MagicCard = ({
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             className={cn(
-                "group relative aspect-[4/3] w-[300px] cursor-pointer rounded-xl outline outline-2 outline-neutral-200 dark:outline-neutral-800 bg-neutral-50 dark:bg-neutral-900 transition-all duration-300 active:scale-[0.99] active:translate-y-px [container-type:size]",
+                "group relative w-full min-w-0 cursor-pointer rounded-xl border transition-all duration-300 active:scale-[0.99] active:translate-y-px [container-type:inline-size]",
                 className
             )}
+            style={{
+                backgroundColor: "var(--bg)",
+                color: "var(--fg)",
+                borderColor: "hsl(var(--border))",
+                ...style,
+            }}
             {...props}
         >
             {/* Inner Content Wrapper */}
             {children ? (
-                <div className="relative z-[4] h-full w-full overflow-hidden rounded-xl">
+                <div className="relative z-[4] w-full overflow-hidden rounded-xl">
                     {children}
                 </div>
             ) : (

@@ -40,7 +40,7 @@ export const CareerTimeline = () => {
       title: "Information Technology Student",
       subtitle: "",
       description:
-        "Started studying Information Technology at Universitas Terbuka while continuing to build and ship practical software projects.",
+        "Started studying Information Technology at Universitas Pamulang (UNPAM) while continuing to build and ship practical software projects.",
       icon: <Users className="h-4 w-4 mr-2 text-primary" />,
     },
   ];

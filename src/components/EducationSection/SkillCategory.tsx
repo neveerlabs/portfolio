@@ -15,11 +15,11 @@ import {
 
 export default function ProfessionalProfile() {
   const technicalSkills = [
+    { name: "LAN & MikroTik Networking", level: 78, icon: Cloud, color: "text-purple-400" },
     { name: "JavaScript / Node.js", level: 90, icon: Code2, color: "text-blue-400" },
     { name: "Python & Shell/Bash", level: 82, icon: Server, color: "text-emerald-400" },
     { name: "HTML5 / CSS3 / Three.js", level: 85, icon: Atom, color: "text-cyan-400" },
     { name: "MySQL / SQLite", level: 80, icon: Database, color: "text-amber-400" },
-    { name: "Linux / Networking", level: 78, icon: Cloud, color: "text-purple-400" },
   ];
 
   const softSkills = [
@@ -138,7 +138,7 @@ export default function ProfessionalProfile() {
                   Constant Learner & Tools Builder
                 </strong>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Continuously learning through open-source projects, practical systems work, and modern web development.
+                  Applying networking and IT support fundamentals while continuing to build practical CLI and web projects.
                 </p>
               </div>
             </div>

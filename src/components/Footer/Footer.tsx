@@ -7,10 +7,10 @@ import neverlabsLogo from "../../assets/neverlabs.png";
 
 export const Footer = () => {
   const morphingTexts = [
-    "Full Stack Developer",
-    "CLI Tools Builder",
-    "Open-Source Contributor",
-    "Web Application Developer",
+    "Networking & IT Support",
+    "LAN & MikroTik Configuration",
+    "Computer & Laptop Servicing",
+    "CLI & Web Projects",
     "Muhammad Syalman Al Farizi",
   ];
 
@@ -53,7 +53,7 @@ export const Footer = () => {
             <img
               src={neverlabsLogo}
               alt="neverlabs"
-              className="h-10 w-40 object-contain object-left"
+              className="brand-logo h-10 w-40 object-contain object-left"
               draggable={false}
             />
           </div>

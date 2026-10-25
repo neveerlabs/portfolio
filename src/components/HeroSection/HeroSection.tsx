@@ -104,7 +104,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Software engineer focused on building CLI tools and modern web applications. I create developer utilities that simplify complex workflows and ship them as polished, deployable products.
+            IT support and networking enthusiast with hands-on experience in LAN configuration, MikroTik devices, and computer troubleshooting. I also build CLI tools and web applications to support practical technical workflows.
           </motion.p>
 
           <motion.div 
@@ -155,7 +155,7 @@ export const HeroSection = () => {
         >
           <HangingIdCard
             name="Muhammad Syalman Al Farizi"
-            role="Full Stack Developer & Tools Builder"
+            role="Networking & IT Support"
             badgeId="NEVERLABS-PRO"
             accentColor="#8b5cf6"
             ropeLength={75}
@@ -197,7 +197,7 @@ export const HeroSection = () => {
                 <div>
                   <h3 className="text-xl font-extrabold tracking-tight text-foreground">Muhammad Syalman Al Farizi</h3>
                   <div className="inline-flex items-center gap-1.5 mt-1 px-3 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-semibold">
-                    <span>Full Stack Developer & Tools Builder</span>
+                    <span>Networking & IT Support</span>
                   </div>
                 </div>
 
@@ -207,7 +207,7 @@ export const HeroSection = () => {
                 <div className="grid grid-cols-2 gap-2.5 w-full text-left bg-muted/40 p-3 rounded-xl border border-border/50">
                   <div>
                     <span className="text-muted-foreground block text-[9px] uppercase tracking-widest font-bold">Specialty</span>
-                    <span className="font-bold text-foreground text-xs">CLI & Web Applications</span>
+                    <span className="font-bold text-foreground text-xs">LAN & MikroTik</span>
                   </div>
                   <div>
                     <span className="text-muted-foreground block text-[9px] uppercase tracking-widest font-bold">Location</span>

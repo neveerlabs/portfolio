@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { Code2, Palette, Cpu, Layers } from "lucide-react";
+import { Code2, Cable, Cpu, Layers } from "lucide-react";
 import { MagicCard } from "../lightswind/magic-card";
 
 const services = [
   {
-    icon: Code2,
-    title: "CLI Tools & Developer Utilities",
-    description: "Practical terminal tools that simplify complex workflows for developers and technical teams.",
-  },
-  {
-    icon: Palette,
-    title: "Web Application Development",
-    description: "Modern frontend and backend applications built to be clear, reliable, and deployable.",
+    icon: Cable,
+    title: "LAN & MikroTik Configuration",
+    description: "Hands-on network setup with LAN cabling and MikroTik RB750/RB941 configuration.",
   },
   {
     icon: Cpu,
-    title: "Network Testing & Security Tools",
-    description: "Utilities for LAN configuration testing, diagnostics, port scanning, and prompt security testing.",
+    title: "Computer & Laptop Support",
+    description: "Computer servicing, troubleshooting, and practical technical support.",
+  },
+  {
+    icon: Code2,
+    title: "CLI Tools & Developer Utilities",
+    description: "Practical terminal tools that support network testing, diagnostics, and technical workflows.",
   },
   {
     icon: Layers,
-    title: "Database Management Tools",
-    description: "Interactive tools for database CRUD operations, table management, and flexible query execution.",
+    title: "Web Application Development",
+    description: "CLI and web projects built to make useful technical tools accessible and straightforward.",
   }
 ];
 
@@ -39,7 +39,7 @@ export const ServicesSection = () => {
           What I Do
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          Building practical CLI utilities, web applications, network tools, and database workflows that solve real technical problems.
+          Network configuration and IT support are my primary focus, complemented by coding projects that turn practical technical needs into useful tools.
         </p>
       </motion.div>
 
@@ -55,7 +55,7 @@ export const ServicesSection = () => {
               viewport={{ once: true, amount: 0.1 }}
             >
               <MagicCard
-                className="h-full min-h-[250px] rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_18px_45px_rgba(15,23,42,0.08)] dark:border-border/80 dark:bg-card/80 dark:shadow-none"
+                className="min-h-[250px] rounded-[2rem] border border-border bg-card/90 p-8 shadow-lg dark:shadow-none"
               >
                 <div className="flex flex-col h-full justify-between gap-6">
                   <div>

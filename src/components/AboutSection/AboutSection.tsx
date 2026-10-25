@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Code2, Globe2, Layout, Users } from "lucide-react";
+import { Code2, Network, Router, Wrench } from "lucide-react";
 
 const stats = [
-  { icon: <Layout className="w-6 h-6" />, label: "Projects Published", value: "23+" },
-  { icon: <Code2 className="w-6 h-6" />, label: "GitHub Contributions", value: "953+" },
-  { icon: <Users className="w-6 h-6" />, label: "Professional Certification", value: "1" },
-  { icon: <Globe2 className="w-6 h-6" />, label: "Building Since", value: "2025" },
+  { icon: <Network className="w-6 h-6" />, label: "Network Setup", value: "LAN" },
+  { icon: <Router className="w-6 h-6" />, label: "MikroTik Devices", value: "RB750 / RB941" },
+  { icon: <Wrench className="w-6 h-6" />, label: "IT Support", value: "PC & Laptop" },
+  { icon: <Code2 className="w-6 h-6" />, label: "Published Projects", value: "23+" },
 ];
 
 export const AboutSection = () => {
@@ -24,10 +24,10 @@ export const AboutSection = () => {
               Building <span className="text-gradient-primary">Useful Tools</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I am a software engineer focused on building CLI tools and modern web applications. I create
-              developer utilities that simplify complex workflows, from network testing to database management,
-              and ship them as polished, deployable products. Currently a student at Universitas Terbuka, I
-              actively build and publish open-source projects on GitHub.
+              I am an IT support and networking enthusiast with a foundation in computer networking,
+              LAN cabling, and MikroTik configuration. My hands-on experience also includes computer and
+              laptop servicing. Alongside that work, I build CLI tools and web applications, bringing a
+              practical coding perspective to everyday technical challenges.
             </p>
           </div>
         </div>

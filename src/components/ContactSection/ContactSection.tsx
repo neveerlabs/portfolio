@@ -68,8 +68,8 @@ export const ContactSection = () => {
                 Let's <span className="text-gradient-primary">Connect</span>
               </h2>
               <p className="text-muted-foreground">
-                Open to collaboration around developer tools, web applications, networking, and open-source projects.
-                Feel free to reach out with an idea or technical challenge.
+                Open to opportunities and collaboration in networking and IT support, with coding projects as a complementary strength.
+                Feel free to reach out about a technical role, project, or challenge.
               </p>
             </div>
 

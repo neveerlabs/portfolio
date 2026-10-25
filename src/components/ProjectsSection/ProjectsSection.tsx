@@ -8,12 +8,20 @@ import qrStudioImage from "../../assets/project/QR-Studio.png";
 export const ProjectsSection = () => {
   const projects = [
     {
+      id: 3,
+      title: "Interface",
+      subtitle: "CLI tools for LAN configuration testing and diagnostics",
+      link: "https://github.com/neveerlabs/Interface",
+      image: interfaceImage,
+      gridClass: "md:col-span-7 h-[420px]",
+    },
+    {
       id: 1,
       title: "Data Center",
       subtitle: "CLI tools for structured account and API key management",
       link: "https://github.com/neveerlabs/data-center",
       image: dataCenterImage,
-      gridClass: "md:col-span-7 h-[420px]",
+      gridClass: "md:col-span-5 h-[420px]",
     },
     {
       id: 2,
@@ -21,14 +29,6 @@ export const ProjectsSection = () => {
       subtitle: "QR barcode attendance webapp with a backend server",
       link: "https://github.com/neveerlabs/QR-Studio",
       image: qrStudioImage,
-      gridClass: "md:col-span-5 h-[420px]",
-    },
-    {
-      id: 3,
-      title: "Interface",
-      subtitle: "CLI tools for LAN configuration testing and diagnostics",
-      link: "https://github.com/neveerlabs/Interface",
-      image: interfaceImage,
       gridClass: "md:col-span-5 h-[360px]",
     },
     {
@@ -54,7 +54,7 @@ export const ProjectsSection = () => {
           Selected <span className="text-gradient-primary">Works</span>
         </h2>
         <p className="text-muted-foreground text-center md:text-left max-w-2xl text-lg">
-          A selection of CLI tools, web applications, and open-source utilities I've built and published.
+          Network-focused tools lead the way, alongside CLI utilities and web applications that showcase my coding work.
         </p>
       </motion.div>
 

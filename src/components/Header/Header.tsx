@@ -88,7 +88,7 @@ export default function Header() {
               <img
                 src={neverlabsLogo}
                 alt="neverlabs"
-                className="h-9 w-36 object-contain object-left"
+                className="brand-logo h-9 w-36 object-contain object-left"
                 draggable={false}
               />
             </a>

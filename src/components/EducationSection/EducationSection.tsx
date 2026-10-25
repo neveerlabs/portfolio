@@ -6,15 +6,15 @@ import { MagicCard } from "../lightswind/magic-card";
 export const EducationSection = () => {
   const education = [
     {
-      degree: "S1 Teknik Informasi",
-      school: "Universitas Terbuka",
+      degree: "T. Informatika",
+      school: "Universitas Pamulang (UNPAM)",
       year: "Mulai 2026",
       badge: "Current Student",
       badgeIcon: Award,
       badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
       icon: GraduationCap,
       details: [
-        "Currently studying information technology while building practical software projects",
+        "Currently studying Informatics while building practical software projects",
         "Focused on programming, web applications, systems, and developer tooling",
       ]
     },
@@ -72,7 +72,7 @@ export const EducationSection = () => {
                 viewport={{ once: true }}
               >
                 <MagicCard
-                  className="h-full rounded-[2.25rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_18px_45px_rgba(15,23,42,0.08)] dark:border-border/80 dark:bg-card/80 dark:shadow-xl"
+                  className="rounded-[2.25rem] border border-border bg-card/90 p-8 shadow-lg dark:shadow-xl"
                 >
                   <div className="flex flex-col h-full justify-between gap-6">
                     <div>

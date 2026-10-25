@@ -15,14 +15,14 @@
         M. Syalman Al Farizi
       </h1>
       <p style="font-size: 24px; color: #e0e7ff; margin: 10px 0 0 0; text-shadow: 0 2px 12px rgba(0,0,0,0.7);">
-        Full-stack Engineer · AI/ML Enthusiast · Open Source Contributor
+        Networking & IT Support · LAN & MikroTik · CLI/Web Projects
       </p>
     </td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Building+scalable+web+apps;Exploring+Computer+Vision+%26+LLMs;Real-time+systems+with+GraphQL;Currently+learning+Rust+%26+Kubernetes" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=LAN+%26+MikroTik+configuration;Computer+%26+laptop+support;Building+CLI+and+web+projects;Networking+with+a+coding+touch" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@
 
 ### About
 
-Full-stack engineer with a passion for AI and real-time systems. I love building products that solve real problems, from web apps to machine learning pipelines. Currently diving deeper into Rust and Kubernetes.
+Networking and IT support enthusiast focused on LAN configuration, MikroTik devices, and computer servicing. I also build CLI tools and web projects to complement my hands-on technical work.
 
 ---
 
@@ -44,43 +44,25 @@ Full-stack engineer with a passion for AI and real-time systems. I love building
 
 <table width="100%" border="0" cellspacing="8" cellpadding="8" style="table-layout: fixed;">
   <tr>
-    <td align="center"><b>Languages</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Databases</b></td>
-    <td align="center"><b>DevOps & Tools</b></td>
+    <td align="center"><b>Networking</b></td>
+    <td align="center"><b>Programming</b></td>
+    <td align="center"><b>Projects</b></td>
   </tr>
   <tr>
     <td align="center">
-      <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /><br/>
+      <img src="https://img.shields.io/badge/LAN_Configuration-2563EB?style=for-the-badge&logo=cisco&logoColor=white" /><br/>
+      <img src="https://img.shields.io/badge/MikroTik_RB750%2FRB941-DC2626?style=for-the-badge&logo=mikrotik&logoColor=white" /><br/>
+      <img src="https://img.shields.io/badge/IT_Support-475569?style=for-the-badge&logo=windows&logoColor=white" />
+    </td>
+    <td align="center">
       <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /><br/>
+      <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /><br/>
       <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white" />
+      <img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=css&logoColor=white" />
     </td>
     <td align="center">
-      <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /><br/>
-      <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" /><br/>
-      <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" />
-    </td>
-    <td align="center">
-      <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Express-404D59?style=for-the-badge&logo=express&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" />
-    </td>
-    <td align="center">
-      <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-    </td>
-    <td align="center">
-      <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" /><br/>
-      <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+      <img src="https://img.shields.io/badge/CLI_Tools-334155?style=for-the-badge&logo=gnubash&logoColor=white" /><br/>
+      <img src="https://img.shields.io/badge/Web_Applications-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white" />
     </td>
   </tr>
 </table>
@@ -105,40 +87,47 @@ Full-stack engineer with a passion for AI and real-time systems. I love building
 
 <hr />
 
+<h3>Public Repositories</h3>
+<p>Repository list checked against the public repositories on <a href="https://github.com/neveerlabs">github.com/neveerlabs</a>.</p>
+
 <footer>
   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; width:100%; table-layout:fixed; border-collapse:collapse; color:#ffffff;">
     <tr>
-      <td width="30%" valign="top" align="left" style="padding:10px 15px 10px 0;">
-        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">Web Applications</h4>
-        <div style="font-size:20px; line-height:2.2;">
+      <td width="25%" valign="top" align="left" style="padding:10px 15px 10px 0;">
+        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">TypeScript</h4>
+        <div style="font-size:18px; line-height:2;">
+          <a href="https://github.com/neveerlabs/CheyaAPP" style="color:#ffffff; text-decoration:none; display:block;">CheyaAPP</a>
+          <a href="https://github.com/neveerlabs/CheyaVerse" style="color:#ffffff; text-decoration:none; display:block;">CheyaVerse</a>
+          <a href="https://github.com/neveerlabs/Journaling" style="color:#ffffff; text-decoration:none; display:block;">Journaling</a>
+          <a href="https://github.com/neveerlabs/portfolio" style="color:#ffffff; text-decoration:none; display:block;">portfolio</a>
+        </div>
+      </td>
+      <td width="25%" valign="top" align="left" style="padding:10px 15px;">
+        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">JavaScript & CSS</h4>
+        <div style="font-size:18px; line-height:2;">
           <a href="https://github.com/neveerlabs/e-Kitabku" style="color:#ffffff; text-decoration:none; display:block;">e-Kitabku</a>
-          <a href="https://github.com/neveerlabs/QR-Studio" style="color:#ffffff; text-decoration:none; display:block;">QR-Studio</a>
-          <a href="https://github.com/neveerlabs/Fingo" style="color:#ffffff; text-decoration:none; display:block;">Fingo</a>
           <a href="https://github.com/neveerlabs/OSM" style="color:#ffffff; text-decoration:none; display:block;">OSM</a>
           <a href="https://github.com/neveerlabs/Kitabku" style="color:#ffffff; text-decoration:none; display:block;">Kitabku</a>
-          <a href="https://github.com/neveerlabs/e-Google" style="color:#ffffff; text-decoration:none; display:block;">e-Google</a>
-          <a href="https://github.com/neveerlabs/portfolio" style="color:#ffffff; text-decoration:none; display:block;">portfolio</a>
+          <a href="https://github.com/neveerlabs/QR-Studio" style="color:#ffffff; text-decoration:none; display:block;">QR-Studio</a>
+          <a href="https://github.com/neveerlabs/Tic-Tac-Toe" style="color:#ffffff; text-decoration:none; display:block;">Tic-Tac-Toe</a>
           <a href="https://github.com/neveerlabs/mylink" style="color:#ffffff; text-decoration:none; display:block;">mylink</a>
           <a href="https://github.com/neveerlabs/intan" style="color:#ffffff; text-decoration:none; display:block;">intan</a>
         </div>
       </td>
-      <td width="30%" valign="top" align="left" style="padding:10px 15px;">
-        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">Tools & Utilities</h4>
-        <div style="font-size:20px; line-height:2.2;">
+      <td width="25%" valign="top" align="left" style="padding:10px 15px;">
+        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">Python</h4>
+        <div style="font-size:18px; line-height:2;">
           <a href="https://github.com/neveerlabs/Tocket" style="color:#ffffff; text-decoration:none; display:block;">Tocket</a>
           <a href="https://github.com/neveerlabs/data-center" style="color:#ffffff; text-decoration:none; display:block;">data-center</a>
           <a href="https://github.com/neveerlabs/Interface" style="color:#ffffff; text-decoration:none; display:block;">Interface</a>
-          <a href="https://github.com/neveerlabs/Cloner" style="color:#ffffff; text-decoration:none; display:block;">Cloner</a>
           <a href="https://github.com/neveerlabs/fuzzer" style="color:#ffffff; text-decoration:none; display:block;">fuzzer</a>
           <a href="https://github.com/neveerlabs/BG-Remover" style="color:#ffffff; text-decoration:none; display:block;">BG-Remover</a>
-          <a href="https://github.com/neveerlabs/sync-gh" style="color:#ffffff; text-decoration:none; display:block;">sync-gh</a>
-          <a href="https://github.com/neveerlabs/apkify" style="color:#ffffff; text-decoration:none; display:block;">apkify</a>
-          <a href="https://github.com/neveerlabs/TermOS" style="color:#ffffff; text-decoration:none; display:block;">TermOS</a>
         </div>
       </td>
-      <td width="40%" valign="top" align="left" style="padding:10px 0 10px 15px;">
-        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">Contact</h4>
-        <div style="font-size:20px; line-height:2.4;">
+      <td width="25%" valign="top" align="left" style="padding:10px 0 10px 15px;">
+        <h4 style="color:#ffffff; margin:0 0 12px 0; font-weight:700; font-size:22px; letter-spacing:0.5px;">Profile & Contact</h4>
+        <div style="font-size:18px; line-height:2;">
+          <a href="https://github.com/neveerlabs/neveerlabs" style="color:#ffffff; text-decoration:none; display:block;">neveerlabs profile</a>
           <b>Instagram:</b> <a href="https://instagram.com/neveerlabs" style="color:#ffffff; text-decoration:none;">@neveerlabs</a><br/>
           <b>Twitter / X:</b> <a href="https://twitter.com/neverlabs291" style="color:#ffffff; text-decoration:none;">@neverlabs291</a><br/>
           <b>Facebook:</b> <a href="https://facebook.com/Salman" style="color:#ffffff; text-decoration:none;">Salman</a><br/>
