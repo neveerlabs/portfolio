@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Mail, ArrowUp, Heart } from "lucide-react";
+import { Github, Mail, ArrowUp } from "lucide-react";
 import { MorphingText } from "../lightswind/morphing-text";
 import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
 import faviconIcon from "../../assets/react.svg";
@@ -119,9 +119,7 @@ export const Footer = () => {
 
           {/* Copyright notice */}
           <div className="flex items-center gap-1.5 font-medium text-center md:text-right">
-            <span>© {new Date().getFullYear()} Muhammad Syalman Al Farizi. Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline-block" />
-            <span>& Lightswind UI</span>
+            <span>© {new Date().getFullYear()} Muhammad Syalman Al Farizi</span>
           </div>
         </div>
 

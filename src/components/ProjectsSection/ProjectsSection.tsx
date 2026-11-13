@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import dataCenterImage from "../../assets/project/data-center.png";
 import interfaceImage from "../../assets/project/Interface.png";
 import osmImage from "../../assets/project/OSM.png";
-import qrStudioImage from "../../assets/project/QR-Studio.png";
+import fuzzerImage from "../../assets/project/fuzzer.png";
+import saraImage from "../../assets/project/Sara.png";
 
 export const ProjectsSection = () => {
   const projects = [
@@ -17,18 +17,18 @@ export const ProjectsSection = () => {
     },
     {
       id: 1,
-      title: "Data Center",
-      subtitle: "CLI tools for structured account and API key management",
-      link: "https://github.com/neveerlabs/data-center",
-      image: dataCenterImage,
+      title: "Sara",
+      subtitle: "A personal AI chat companion for Linux, powered by Google Gemini.",
+      link: "https://github.com/neveerlabs/Sara",
+      image: saraImage,
       gridClass: "md:col-span-5 h-[420px]",
     },
     {
       id: 2,
-      title: "QR-Studio",
-      subtitle: "QR barcode attendance webapp with a backend server",
-      link: "https://github.com/neveerlabs/QR-Studio",
-      image: qrStudioImage,
+      title: "Fuzzer",
+      subtitle: "A penetration testing tool for large language models (LLMs) specifically designed to test the resilience of AI ethical and security filters.",
+      link: "https://github.com/neveerlabs/fuzzer",
+      image: fuzzerImage,
       gridClass: "md:col-span-5 h-[360px]",
     },
     {

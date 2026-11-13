@@ -89,6 +89,239 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
+.github-markdown {
+  --github-readme-background: #0d1117;
+  --github-readme-surface: #161b22;
+  --github-readme-foreground: #e6edf3;
+  --github-readme-muted: #9198a1;
+  --github-readme-border: #30363d;
+  --github-readme-link: #58a6ff;
+
+  max-width: 900px;
+  margin-inline: auto;
+  overflow-wrap: anywhere;
+  color: var(--github-readme-foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.github-markdown-dialog {
+  border: 1px solid #30363d;
+  background: #0d1117;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
+}
+
+.github-markdown-toolbar {
+  border-bottom: 1px solid #30363d;
+  background: #161b22;
+}
+
+.github-markdown-viewport {
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.github-markdown > :first-child {
+  margin-top: 0;
+}
+
+.github-markdown > p:has(.github-markdown-banner) {
+  margin: 0;
+  line-height: 0;
+}
+
+.github-markdown > p:has(.github-markdown-avatar) {
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin: -36px 20px 0 12px;
+}
+
+.github-markdown h1,
+.github-markdown h2 {
+  margin: 28px 0 16px;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--github-readme-border);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.github-markdown h1 {
+  margin: 8px 0;
+  font-size: 2em;
+}
+
+.github-markdown > h1 + p {
+  margin: 0 0 8px;
+  color: var(--github-readme-muted);
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+
+.github-markdown > h1 + p + p {
+  max-width: 640px;
+  margin: 0 0 12px;
+}
+
+.github-markdown > p:has(> img[alt="Networking, IT support, and coding"]) {
+  clear: both;
+  margin: 0 0 12px;
+}
+
+.github-markdown > p:has(> a > img[alt="GitHub followers"]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+
+.github-markdown h2 {
+  font-size: 1.5em;
+}
+
+.github-markdown h3 {
+  margin: 24px 0 12px;
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.github-markdown p,
+.github-markdown ul,
+.github-markdown ol,
+.github-markdown blockquote {
+  margin: 0 0 16px;
+}
+
+.github-markdown ul,
+.github-markdown ol {
+  padding-left: 2em;
+}
+
+.github-markdown li + li {
+  margin-top: 4px;
+}
+
+.github-markdown a {
+  color: var(--github-readme-link);
+  text-decoration: none;
+}
+
+.github-markdown a:hover {
+  text-decoration: underline;
+}
+
+.github-markdown img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.github-markdown .github-markdown-banner {
+  display: block;
+  width: 100%;
+  height: clamp(88px, 12vw, 128px);
+  border: 1px solid var(--github-readme-border);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.github-markdown .github-markdown-avatar {
+  width: 88px;
+  height: 88px;
+  border: 3px solid var(--github-readme-background);
+  border-radius: 50%;
+  background: var(--github-readme-background);
+  object-fit: cover;
+}
+
+.github-markdown .github-markdown-image {
+  display: inline-block;
+  margin: 0;
+}
+
+.github-markdown > p:has(> img[alt="LAN configuration"]),
+.github-markdown > p:has(> img[alt="JavaScript"]),
+.github-markdown > p:has(> img[alt="React"]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.github-markdown img[alt="GitHub statistics"],
+.github-markdown img[alt="Most used languages"] {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.github-markdown > p:has(> img[alt="GitHub statistics"]),
+.github-markdown > p:has(> img[alt="Most used languages"]) {
+  display: inline-flex;
+  width: calc(50% - 16px);
+  align-items: center;
+  justify-content: center;
+  margin: 0 12px 16px 0;
+  padding: 12px;
+  border: 1px solid var(--github-readme-border);
+  border-radius: 12px;
+  background: var(--github-readme-surface);
+}
+
+.github-markdown hr {
+  height: 1px;
+  margin: 24px 0;
+  border: 0;
+  background: var(--github-readme-border);
+}
+
+.github-markdown blockquote {
+  padding: 0 1em;
+  border-left: 3px solid var(--github-readme-border);
+  color: var(--github-readme-muted);
+}
+
+.github-markdown code {
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  background: var(--github-readme-surface);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+@media (max-width: 640px) {
+  .github-markdown > p:has(.github-markdown-avatar) {
+    display: flex;
+    float: none;
+    justify-content: center;
+    margin: -32px 0 8px;
+  }
+
+  .github-markdown h1,
+  .github-markdown > h1 + p,
+  .github-markdown > h1 + p + p,
+  .github-markdown > p:has(> img[alt="Networking, IT support, and coding"]) {
+    text-align: center;
+  }
+
+  .github-markdown > h1 + p + p {
+    margin-inline: auto;
+  }
+
+  .github-markdown > p:has(> a > img[alt="GitHub followers"]) {
+    justify-content: center;
+  }
+
+  .github-markdown > p:has(> img[alt="GitHub statistics"]),
+  .github-markdown > p:has(> img[alt="Most used languages"]) {
+    display: flex;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
 .brand-logo {
   filter: brightness(0);
 }
@@ -109,47 +342,4 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.readme-preview h3 {
-  margin: 1.25rem 0 0.5rem;
-  color: #fff;
-  font-size: 1.15rem;
-  font-weight: 800;
-}
-
-.readme-preview hr {
-  margin: 1rem 0;
-  border-color: #27272a;
-}
-
-.readme-preview img {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  -webkit-user-drag: none;
-  user-select: none;
-}
-
-.readme-preview {
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.readme-preview p[align="center"] {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.readme-preview p[align="center"] img {
-  flex: 0 1 auto;
-  max-width: min(100%, 15rem);
-}
-
-.readme-preview a {
-  color: #a78bfa;
-  text-decoration: underline;
 }

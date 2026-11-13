@@ -1,21 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Mail, X } from "lucide-react";
+import { ArrowRight, Download, FileText, Github, Mail, X } from "lucide-react";
 import TechStackSection from "../TechStackSection/TechStackSection";
 import { Button } from "../lightswind/button";
-import { Badge } from "../lightswind/badge";
 import { HangingIdCard } from "../lightswind/HangingIdCard";
 import { AuroraTextEffect } from "../lightswind/aurora-text-effect";
 import { DotPattern } from "../lightswind/dot-pattern";
+import ReadmeProfile from "./ReadmeProfile";
 import profileImage from "../../assets/image.jpeg";
 import resumeFile from "../../assets/RESUME-Muhammad-Syalman-Al-Farizi.pdf";
 import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
-import readmeContent from "../../../README.md?raw";
-
-const readmeHtml = readmeContent
-  .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-  .replace(/^---$/gm, "<hr />")
-  .replace(/\n{2,}/g, "<br /><br />");
 
 export const HeroSection = () => {
   const [isReadmeOpen, setIsReadmeOpen] = useState(false);
@@ -55,21 +49,6 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mb-6"
-          >
-            <Badge variant="outline" size="lg" className="gap-2.5 py-1.5 px-4 glass-panel border-foreground/10">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-xs font-medium text-muted-foreground">Available for work</span>
-            </Badge>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,7 +241,7 @@ export const HeroSection = () => {
     </section>
     {isReadmeOpen && (
       <div
-        className="fixed inset-0 z-[1000] flex h-[100dvh] overscroll-none items-center justify-center overflow-hidden bg-slate-950/60 px-4 py-8 backdrop-blur-sm"
+        className="fixed inset-0 z-[1000] flex h-[100dvh] overscroll-none items-center justify-center overflow-hidden bg-background/80 px-4 py-6 backdrop-blur-md"
         role="presentation"
         onMouseDown={() => setIsReadmeOpen(false)}
       >
@@ -272,15 +251,23 @@ export const HeroSection = () => {
           aria-labelledby="readme-dialog-title"
           initial={{ opacity: 0, scale: 0.96, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="relative flex max-h-[86vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-2xl"
+          className="github-markdown-dialog relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-[2rem]"
           onMouseDown={(event) => event.stopPropagation()}
         >
-          <div className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-black px-5 py-3">
-            <h2 id="readme-dialog-title" className="font-mono text-sm font-bold text-white">README.md</h2>
+          <div className="github-markdown-toolbar flex shrink-0 items-center justify-between px-5 py-3.5">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#30363d] bg-[#21262d] text-[#58a6ff]">
+                <FileText className="h-4 w-4" />
+              </span>
+              <div>
+                <h2 id="readme-dialog-title" className="text-sm font-bold text-[#e6edf3]">README.md</h2>
+                <p className="text-[11px] text-[#9198a1]">neveerlabs / profile</p>
+              </div>
+            </div>
             <button
               type="button"
               onClick={() => setIsReadmeOpen(false)}
-              className="rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white"
+              className="rounded-xl border border-[#30363d] bg-[#21262d] p-2 text-[#9198a1] transition-colors hover:bg-[#30363d] hover:text-[#e6edf3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#58a6ff]"
               aria-label="Close README.md"
             >
               <X className="h-4 w-4" />
@@ -291,9 +278,10 @@ export const HeroSection = () => {
             tabIndex={0}
             onWheel={(event) => event.stopPropagation()}
             onDragStart={(event) => event.preventDefault()}
-            className="readme-preview min-h-0 flex-1 select-none overflow-y-auto overscroll-contain bg-black px-6 py-5 text-sm leading-7 text-zinc-300 outline-none"
-            dangerouslySetInnerHTML={{ __html: readmeHtml }}
-          />
+            className="github-markdown-viewport min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 outline-none sm:p-6 md:p-8"
+          >
+            <ReadmeProfile />
+          </article>
         </motion.div>
       </div>
     )}

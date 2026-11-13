@@ -3,23 +3,48 @@ import {
   Atom,
   Server,
   Code2,
+  Palette,
+  Braces,
   Database,
-  Cloud,
   Crown,
   Brain,
   HeartHandshake,
   Lightbulb,
-  Users,
   Rocket,
 } from "lucide-react";
 
 export default function ProfessionalProfile() {
-  const technicalSkills = [
-    { name: "LAN & MikroTik Networking", level: 78, icon: Cloud, color: "text-purple-400" },
-    { name: "JavaScript / Node.js", level: 90, icon: Code2, color: "text-blue-400" },
-    { name: "Python & Shell/Bash", level: 82, icon: Server, color: "text-emerald-400" },
-    { name: "HTML5 / CSS3 / Three.js", level: 85, icon: Atom, color: "text-cyan-400" },
-    { name: "MySQL / SQLite", level: 80, icon: Database, color: "text-amber-400" },
+  const languageDistribution = [
+    { name: "Dart", share: 97.86, icon: Atom, color: "text-cyan-400" },
+    { name: "TypeScript", share: 86.36, icon: Code2, color: "text-sky-400" },
+    { name: "Python", share: 65.84, icon: Server, color: "text-blue-400" },
+    { name: "JavaScript", share: 43.64, icon: Code2, color: "text-yellow-400" },
+    { name: "CSS", share: 17.20, icon: Palette, color: "text-purple-400" },
+    { name: "HTML", share: 13.92, icon: Braces, color: "text-orange-400" },
+    { name: "PL/pgSQL", share: 5.73, icon: Database, color: "text-amber-400" },
+    { name: "C++", share: 1.03, icon: Code2, color: "text-muted-foreground" },
+    { name: "Dockerfile", share: 0.32, icon: Server, color: "text-muted-foreground" },
+    { name: "Java", share: 0.14, icon: Code2, color: "text-muted-foreground" },
+    { name: "C", share: 0.07, icon: Code2, color: "text-muted-foreground" },
+  ];
+
+  const toolsByCategory = [
+    {
+      name: "Frontend",
+      tools: ["React", "Next.js", "Vite", "Tailwind CSS", "Three.js"],
+    },
+    {
+      name: "Backend & Data",
+      tools: ["Node.js", "Express.js", "Flask", "Supabase", "PostgreSQL", "MySQL", "SQLite"],
+    },
+    {
+      name: "Desktop & AI",
+      tools: ["Flutter", "CustomTkinter", "aiogram", "Gemini API"],
+    },
+    {
+      name: "Systems & Network",
+      tools: ["LAN & Cabling", "MikroTik RB750 / RB941", "Linux Diagnostics"],
+    },
   ];
 
   const softSkills = [
@@ -28,7 +53,6 @@ export default function ProfessionalProfile() {
     { name: "Problem Solving", icon: Brain, color: "text-purple-400 border-purple-500/30 bg-purple-500/10" },
     { name: "Technical Communication", icon: HeartHandshake, color: "text-rose-400 border-rose-500/30 bg-rose-500/10" },
     { name: "Continuous Learning", icon: Lightbulb, color: "text-yellow-400 border-yellow-500/30 bg-yellow-500/10" },
-    { name: "Open-Source Collaboration", icon: Users, color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10" },
   ];
 
   return (
@@ -49,7 +73,7 @@ export default function ProfessionalProfile() {
         <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">Expertise & Skills</h3>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-8">
         {/* Technical Skills */}
         <div className="glass-panel p-8 rounded-[2rem] border border-foreground/15 shadow-xl relative overflow-hidden">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-border/60">
@@ -57,12 +81,16 @@ export default function ProfessionalProfile() {
               <Server className="w-5 h-5 text-primary" /> Technical Arsenal
             </h4>
             <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50">
-              Proficiency
+              Per-language Average
             </span>
           </div>
 
-          <div className="space-y-6">
-            {technicalSkills.map((skill, i) => {
+          <p className="text-xs text-muted-foreground -mt-4 mb-6">
+            Average share per language, calculated only from repositories where it appears.
+          </p>
+
+          <div className="space-y-5">
+            {languageDistribution.map((skill, i) => {
               const Icon = skill.icon;
               return (
                 <div key={i} className="space-y-2.5">
@@ -74,14 +102,14 @@ export default function ProfessionalProfile() {
                       {skill.name}
                     </span>
                     <span className="font-mono font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full text-xs border border-primary/20">
-                      {skill.level}%
+                      {skill.share.toFixed(2)}%
                     </span>
                   </div>
                   <div className="h-2.5 w-full bg-muted/60 rounded-full overflow-hidden border border-border/40 p-[1px]">
                     <motion.div
                       className="h-full bg-gradient-to-r from-purple-600 via-primary to-sky-400 rounded-full relative shadow-[0_0_12px_rgba(139,92,246,0.5)]"
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
+                      whileInView={{ width: `${skill.share}%` }}
                       transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 + i * 0.1 }}
                       viewport={{ once: true }}
                     >
@@ -92,10 +120,11 @@ export default function ProfessionalProfile() {
               );
             })}
           </div>
+
         </div>
 
         {/* Soft Skills & Traits */}
-        <div className="glass-panel p-8 rounded-[2rem] border border-foreground/15 shadow-xl flex flex-col justify-between">
+        <div className="glass-panel p-8 rounded-[2rem] border border-foreground/15 shadow-xl flex flex-col">
           <div>
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-border/60">
               <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
@@ -125,6 +154,25 @@ export default function ProfessionalProfile() {
                   );
                 })}
               </AnimatePresence>
+            </div>
+
+            <div className="mt-7 pt-6 border-t border-border/60 space-y-4">
+              <h5 className="text-sm font-bold text-foreground">Frameworks & Tools</h5>
+              {toolsByCategory.map((category) => (
+                <div key={category.name} className="space-y-2">
+                  <h6 className="text-xs font-semibold text-muted-foreground">{category.name}</h6>
+                  <div className="flex flex-wrap gap-2">
+                    {category.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1.5 text-xs font-medium text-foreground"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           
