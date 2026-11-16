@@ -8,7 +8,7 @@ import { AuroraTextEffect } from "../lightswind/aurora-text-effect";
 import { DotPattern } from "../lightswind/dot-pattern";
 import ReadmeProfile from "./ReadmeProfile";
 import profileImage from "../../assets/image.jpeg";
-import resumeFile from "../../assets/RESUME-Muhammad-Syalman-Al-Farizi.pdf";
+import resumeFile from "../../assets/CV_M.Syalman_Al-Farizi.pdf";
 import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
 
 export const HeroSection = () => {
@@ -98,7 +98,7 @@ export const HeroSection = () => {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full px-7 h-12 glass-panel text-foreground font-semibold flex items-center gap-2 hover:bg-foreground/10 transition-all hover:-translate-y-1 border-foreground/10">
-              <a href={resumeFile} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+              <a href={resumeFile} download="CV_M.Syalman_Al-Farizi.pdf" className="flex items-center gap-2">
                 Resume <Download className="w-4 h-4" />
               </a>
             </Button>
