@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, FileText, Github, Mail, X } from "lucide-react";
+import { ArrowRight, Download, FileText, Github, Instagram, Linkedin, Mail, X } from "lucide-react";
 import TechStackSection from "../TechStackSection/TechStackSection";
 import { Button } from "../lightswind/button";
 import { HangingIdCard } from "../lightswind/HangingIdCard";
@@ -9,7 +9,7 @@ import { DotPattern } from "../lightswind/dot-pattern";
 import ReadmeProfile from "./ReadmeProfile";
 import profileImage from "../../assets/image.jpeg";
 import resumeFile from "../../assets/CV_M.Syalman_Al-Farizi.pdf";
-import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
+import { ThreadsIcon } from "../SocialIcons";
 
 export const HeroSection = () => {
   const [isReadmeOpen, setIsReadmeOpen] = useState(false);
@@ -112,11 +112,11 @@ export const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             {[
-              { Icon: XIcon, href: "https://x.com/neverlabs291", label: "X" },
-              { Icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
               { Icon: Mail, href: "mailto:neverlabs4@gmail.com", label: "Email" },
-              { Icon: InstagramIcon, href: "https://www.instagram.com/neveerlabs", label: "Instagram" },
-              { Icon: FacebookIcon, href: "https://www.facebook.com/Salman", label: "Facebook" },
+              { Icon: ThreadsIcon, href: "https://www.threads.com/@neveerlabs", label: "Threads" },
+              { Icon: Instagram, href: "https://www.instagram.com/neveerlabs", label: "Instagram" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/neverlabs/", label: "LinkedIn" },
+              { Icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
             ].map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} className="text-muted-foreground hover:text-foreground transition-colors hover:-translate-y-1 transform duration-200">
                 <Icon className="w-5 h-5" />

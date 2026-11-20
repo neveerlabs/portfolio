@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Github, Mail, ArrowUp } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { MorphingText } from "../lightswind/morphing-text";
-import { FacebookIcon, InstagramIcon, XIcon } from "../SocialIcons";
+import { ThreadsIcon } from "../SocialIcons";
 import faviconIcon from "../../assets/react.svg";
 import neverlabsLogo from "../../assets/neverlabs.png";
 
@@ -28,11 +28,11 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: XIcon, href: "https://x.com/neverlabs291", label: "X" },
-    { icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
     { icon: Mail, href: "mailto:neverlabs4@gmail.com", label: "Email" },
-    { icon: InstagramIcon, href: "https://www.instagram.com/neveerlabs", label: "Instagram (@neveerlabs)" },
-    { icon: FacebookIcon, href: "https://www.facebook.com/Salman", label: "Facebook (Salman)" },
+    { icon: ThreadsIcon, href: "https://www.threads.com/@neveerlabs", label: "Threads" },
+    { icon: Instagram, href: "https://www.instagram.com/neveerlabs", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/neverlabs/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/neveerlabs", label: "GitHub" },
   ];
 
   return (
